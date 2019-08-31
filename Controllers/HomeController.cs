@@ -8,16 +8,17 @@ using SalesWebMvc.Models;
 
 namespace SalesWebMvc.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller // Ao ser digitado no browser home, ele vai chamar o index()
     {
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult About() // Ao ser digitado no browser home/about, ele vai chamar o about()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "O Gustavo é Foda meu camarada!!!.";
+            ViewData["Email"] = "gustavaomorais@hotmail.com";
 
             return View();
         }

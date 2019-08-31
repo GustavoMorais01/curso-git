@@ -29,3 +29,4 @@ D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.Views.pdb
 D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.dll
 D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.pdb
 D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.csproj.CopyComplete
+D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.csprojAssemblyReference.cache
