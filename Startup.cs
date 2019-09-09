@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
+using SalesWebMvc.Data; // Biblioteca usada para adicionar servicos(SeedingService)
 
 namespace SalesWebMvc
 {
@@ -41,14 +42,21 @@ namespace SalesWebMvc
             services.AddDbContext<SalesWebMvcContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("SalesWebMvcContext"), builder =>
                         builder.MigrationsAssembly("SalesWebMvc")));
+
+            // Registrando serviço na injeção de dependencia da aplicação
+            // Registrando serviço da classe SeedingService usada para popular as tabelas no banco de dados.
+            services.AddScoped<SeedingService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed(); // Chamando o objetos da Classe SeedingService Seed para popular o banco de dados
             }
             else
             {
