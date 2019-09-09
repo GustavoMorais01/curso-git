@@ -13,6 +13,16 @@ namespace SalesWebMvc.Models
         {
         }
 
-        public DbSet<SalesWebMvc.Models.Departament> Departament { get; set; }
+        // Antes de mudar os Dbsets
+        //public DbSet<SalesWebMvc.Models.Departament> Departament { get; set; }
+
+        // Adicionando mais Dbset para mais entidades
+        // Depois fazer a migration para atualizar o banco de dados
+        public DbSet<Departament> Departament { get; set; }
+
+        public DbSet<Seller> Seller { get; set; }
+
+        public DbSet<SalesRecord> SalesRecord { get; set; }
+
     }
 }
