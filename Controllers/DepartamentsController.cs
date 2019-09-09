@@ -13,6 +13,7 @@ namespace SalesWebMvc.Controllers
     {
         private readonly SalesWebMvcContext _context;
 
+        // Construtor para injeção de dependencias
         public DepartamentsController(SalesWebMvcContext context)
         {
             _context = context;

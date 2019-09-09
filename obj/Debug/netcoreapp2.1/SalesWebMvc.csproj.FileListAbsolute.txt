@@ -30,3 +30,8 @@ D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.dll
 D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.pdb
 D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.csproj.CopyComplete
 D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\SalesWebMvc.csprojAssemblyReference.cache
+D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departaments\Create.g.cshtml.cs
+D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departaments\Delete.g.cshtml.cs
+D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departaments\Details.g.cshtml.cs
+D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departaments\Edit.g.cshtml.cs
+D:\Meus Documentos\C#\SalesWebMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departaments\Index.g.cshtml.cs
