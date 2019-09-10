@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SalesWebMvc.Models;
 using SalesWebMvc.Services; // Biblioteca para importar da classe SellerService
 
 namespace SalesWebMvc.Controllers
@@ -31,5 +32,21 @@ namespace SalesWebMvc.Controllers
             // O controlador acessou o model, pegou os dados na lista.
             // Encaminhanhou os dados para a View(list)
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Criando a ação de Post botão create
+
+        [HttpPost] // Anotation para o programa que a ação é post e não get
+        [ValidateAntiForgeryToken] //Anotation para prevenir que a aplicação sofra ataques CSRF, Protege contra hack
+        public IActionResult Create(Seller seller)
+        {
+            _sellerService.Insert(seller);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
