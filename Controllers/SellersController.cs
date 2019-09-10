@@ -3,14 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SalesWebMvc.Services; // Biblioteca para importar da classe SellerService
 
 namespace SalesWebMvc.Controllers
 {
     public class SellersController : Controller
     {
+        // Declarando dependencia para o SellerService
+        private readonly SellerService _sellerService;
+
+        // Construtor para injetar dependencia
+        public SellersController(SellerService sellerService)
+        {
+            _sellerService = sellerService;
+        }
+
+        // Esse Index() vai ter que chamar a operação FindAll() da classe SellerService.
         public IActionResult Index()
         {
-            return View();
+            // Implementando o SellerService para chamar o FindAll()
+            var list = _sellerService.FindAll(); // Retorna lista de Seller
+
+            return View(list);
+
+            // O que esta acontecendo nesse metodo:
+            // Chamou o controlador Index()
+            // O controlador acessou o model, pegou os dados na lista.
+            // Encaminhanhou os dados para a View(list)
         }
     }
 }

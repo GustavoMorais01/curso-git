@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
 using SalesWebMvc.Data; // Biblioteca usada para adicionar servicos(SeedingService)
+using SalesWebMvc.Services;
 
 namespace SalesWebMvc
 {
@@ -47,6 +48,7 @@ namespace SalesWebMvc
             // Registrando serviço da classe SeedingService usada para popular as tabelas no banco de dados.
             services.AddScoped<SeedingService>();
 
+            services.AddScoped<SellerService>();// Serviço pode ser injetado em outras classes.
 
         }
 
