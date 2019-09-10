@@ -16,6 +16,8 @@ namespace SalesWebMvc.Models
         // Fazendo Composição(01 associação com a classe Departament)
         public Departament Departament { get; set; }
 
+        public int DepartamentId { get; set; }
+
         // Associação 1 para muitos
         // Fazendo um composição(Enumeração) com a classe SalesRecord e Instanciando uma nova lista
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
