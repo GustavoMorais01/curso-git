@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SalesWebMvc.Models;
+using SalesWebMvc.Models.ViewModels;
 using SalesWebMvc.Services; // Biblioteca para importar da classe SellerService
 
 namespace SalesWebMvc.Controllers
@@ -12,11 +13,14 @@ namespace SalesWebMvc.Controllers
     {
         // Declarando dependencia para o SellerService
         private readonly SellerService _sellerService;
+        private readonly DepartamentService _departamentService;
+
 
         // Construtor para injetar dependencia
-        public SellersController(SellerService sellerService)
+        public SellersController(SellerService sellerService, DepartamentService departamentService)
         {
             _sellerService = sellerService;
+            _departamentService = departamentService;
         }
 
         // Esse Index() vai ter que chamar a operação FindAll() da classe SellerService.
@@ -35,7 +39,9 @@ namespace SalesWebMvc.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var departaments = _departamentService.FindAll();
+            var viewModel = new SellerFormViewModel { Departaments = departaments };
+            return View(viewModel);
         }
 
         // Criando a ação de Post botão create

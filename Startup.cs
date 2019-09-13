@@ -47,8 +47,8 @@ namespace SalesWebMvc
             // Registrando serviço na injeção de dependencia da aplicação
             // Registrando serviço da classe SeedingService usada para popular as tabelas no banco de dados.
             services.AddScoped<SeedingService>();
-
             services.AddScoped<SellerService>();// Serviço pode ser injetado em outras classes.
+            services.AddScoped<DepartamentService>();
 
         }
 
