@@ -1,0 +1,54 @@
+﻿<!--Declaração que a view vai ter a disposição o objeto Seller-->
+<!-- #1 Compilador reconhece o atributo Name-->
+
+@model SalesWebMvc.Models.ViewModels.SellerFormViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!--Criando um HTML basico para a VIEW-->
+
+<h4>Seller</h4>
+<hr />
+<div class="row">
+    <!--Class "row" do bootstrap garante que o div ocupe a largura da tela-->
+
+    <div class="col-md-4">
+        <!--class="col-md-4" cria um formulario que ocupa 1/3 da tela-->
+
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Seller.Id"/>
+
+            <div class="form-group">
+                <label asp-for="Seller.Name" class="control-label"></label> <!--#1 Compilador reconhece o atributo Name-->
+                <input asp-for="Seller.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.Email" class="control-label"></label> <!--#1 Compilador reconhece o atributo Email-->
+                <input asp-for="Seller.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.BirthDate" class="control-label"></label> <!--#1 Compilador reconhece o atributo BithDate-->
+                <input asp-for="Seller.BirthDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.BaseSalary" class="control-label"></label> <!--#1 Compilador reconhece o atributo BaseSalary-->
+                <input asp-for="Seller.BaseSalary " class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Seller.DepartamentId" class="control-label"></label>
+                <select asp-for="Seller.DepartamentId" asp-items="@(new SelectList(Model.Departaments,"Id","Name"))" class="form-control"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="tbn btn-default" />
+            </div>
+        </form>
+
+    </div>
+
+</div>
