@@ -19,33 +19,35 @@ namespace SalesWebMvc.Services
         }
 
         // Implementando a operação Findall para retornar uma lista com todos os vendedores do banco de bados
-        public List<Seller> FindAll()
+        public async Task<List<Seller>> FindAllAsync()
         {
             // Acessa a fonte de dados da tabela de vendedores e converte para uma lista
-            return _context.Seller.ToList();
+            return await _context.Seller.ToListAsync();
         }
         // Metodo para inserir no banco de dados um novo vendedor
-        public void Insert(Seller obj)
+        public async Task InsertAsync(Seller obj)
         {
             _context.Add(obj);// Inserindo o objeto obj no banco de dados.
-            _context.SaveChanges();// Salvando e confirmando a alteração no banco de dados
+            _context.SaveChangesAsync();// Salvando e confirmando a alteração no banco de dados
         }
         
-        public Seller FindById(int id)
+        public async Task<Seller> FindByIdAsync(int id)
         {
-            return _context.Seller.Include(obj => obj.Departament).FirstOrDefault(obj => obj.Id == id);
+            return await _context.Seller.Include(obj => obj.Departament).FirstOrDefaultAsync(obj => obj.Id == id);
         }
 
-        public void Remove(int id)
+        public async Task  RemoveAsync(int id)
         {
-            var obj = _context.Seller.Find(id);
+            var obj = await _context.Seller.FindAsync(id);
             _context.Seller.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void Update(Seller obj)
+        public async Task UpdateAsync(Seller obj)
         {
-            if (!_context.Seller.Any(x => x.Id == obj.Id))
+            bool hasAny = await _context.Seller.AnyAsync(x => x.Id == obj.Id);
+
+            if (!hasAny)
             {
                 throw new NotFoundException("Id not found!!!");
             }
@@ -53,7 +55,7 @@ namespace SalesWebMvc.Services
             try
             {
                 _context.Update(obj);// Atualizando no banco de dados
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException e)
             {
